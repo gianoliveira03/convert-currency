@@ -1,5 +1,6 @@
 const convertButton = document.querySelector(".convert-button");
 const currencySelect = document.querySelector(".currency-select");
+const currencySelectToConvert = document.querySelector(".currency-select-to-convert");
 
 
 function convertValues() {
@@ -8,16 +9,14 @@ function convertValues() {
     const currencyValueConverted = document.querySelector(".currency-value")
 
     console.log(currencySelect.value)
-    const dolarToday = 5.2
-    const euroToday = 6.2
-
-    const covertedValue = inputCurrencyValue / dolarToday
+    const dolarToday = 4.99
+    const euroToday = 5.4
+    const libraToday = 6.3
 
     if (currencySelect.value == "dolar") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
-
         }).format(inputCurrencyValue / dolarToday)
     }
 
@@ -29,19 +28,36 @@ function convertValues() {
         }).format(inputCurrencyValue / euroToday)
     }
 
+    if (currencySelect.value == "libra") {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-UK", {
+            style: "currency",
+            currency: "GBP"
+        }).format(inputCurrencyValue / libraToday)
+    }
+
 
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
     }).format(inputCurrencyValue)
 
+    
+
 
 
 }
 
+function changeCurrecyConvert(){
+    
+}
+
+
+
+
+
 function changeCurrecy(){
     const currencyName = document.querySelector("#currency-name")
-    const currecyImage = document.querySelector(".currecy-img")
+    const currecyImage = document.querySelector(".currency-img")
 
     if (currencySelect.value == "dolar") {
         currencyName.innerHTML = "Dólar Americano"
@@ -54,11 +70,16 @@ function changeCurrecy(){
 
     }
 
+    if (currencySelect.value == "libra") {
+        currencyName.innerHTML = "Libra"
+        currecyImage.src = "./assets/logo.libra.png"
+
+    }
+
     convertValues()
 }
 
 
+currencySelectToConvert.addEventListener("change,changeCurrecyConvert")
 currencySelect.addEventListener("change",changeCurrecy );
 convertButton.addEventListener("click", convertValues);
-
-
