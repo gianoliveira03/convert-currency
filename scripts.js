@@ -36,20 +36,48 @@ function convertValues() {
     }
 
 
+
+    
+
+    if(currencySelectToConvert.value == "real"){
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
-    }).format(inputCurrencyValue)
+    }).format(inputCurrencyValue )
+    }
 
-    
+    if(currencySelectToConvert.value == "dolar"){
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inputCurrencyValue  )
+    }
 
 
 
 }
 
 function changeCurrecyConvert(){
+
+    const currencyNameConvert = document.querySelector("#currency-name-convert")
+    const currecyImageConvert = document.querySelector(".currency-img-convert")
+
+    if(currencySelectToConvert.value == "dolar") {
+        currencyNameConvert.innerHTML = "Dólar Americano"
+        currecyImageConvert.src = "./assets/logo.eua.png"
+
+    }
+        
+
+     if(currencySelectToConvert.value == "real") {
+        currencyNameConvert.innerHTML = "Real"
+        currecyImageConvert.src = "./assets/logo.brasil.png"
+    }
     
+
+    convertValues()
 }
+
 
 
 
@@ -80,6 +108,6 @@ function changeCurrecy(){
 }
 
 
-currencySelectToConvert.addEventListener("change,changeCurrecyConvert")
+currencySelectToConvert.addEventListener("change", changeCurrecyConvert);
 currencySelect.addEventListener("change",changeCurrecy );
 convertButton.addEventListener("click", convertValues);
