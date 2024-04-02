@@ -6,7 +6,7 @@
   
 </h4>
   <br>
-  <img alt="Layout" src="https://github.com/gianoliveira03/mario-bross/blob/master/img/mockups%20mobile%20e%20pc%20.png?raw=true">
+  <img alt="Layout" src="https://github.com/gianoliveira03/convert-currency/blob/main/assets/mockups%20currency%20mobile%20e%20pc%20.png?raw=true">
 <br>
 
 ## :computer: Tecnologias utilizadas 👇
